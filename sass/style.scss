@@ -1,0 +1,132 @@
+// partials
+@use 'variables';
+@use 'reset';
+
+:root {
+  // interpolation
+  --primary-color: #{variables.$primary-color};
+  --secondary-color: #{variables.$secondary-color};
+  --white-color: #{variables.$white-color};
+  --black-color: #{variables.$black-color};
+}
+
+*::selection { 
+  color: var(--primary-color);
+  background-color: var(--black-color);
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: var(--white-color);
+  background:  {
+    color: var(--black-color);
+    image: linear-gradient(rgba(0 0 0 / 0), rgba(0 0 0 / 0)), url('../img/background.jpg');
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  };
+  font-family: 'Roboto', sans-serif;
+}
+
+.form {
+  width: 90%;
+  max-width: 450px;
+  padding: 7.4rem 5rem;
+  margin: auto;
+  border: 1px solid var(--secondary-color);
+  border-radius: 1.4rem;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--secondary-color);
+  backdrop-filter: blur(.6rem);
+
+  // nesting
+  &__title {
+    font-size: 3.4rem;
+    font-weight: 500;
+    margin-bottom: 1.4rem;
+  }
+
+  &__count {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  &__link {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: .4rem
+  }
+
+  &__line {
+    font-weight: 500;
+    color: var(--white-color);
+  }
+
+  &__container {
+    display: grid;
+    gap: 5rem;
+    margin-top: 5.4rem;
+  }
+
+  &__group {
+    position: relative;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: 1rem .5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white-color);
+    font-size: 1.8rem;
+    color: var(--white-color);
+    outline: none;
+    
+    &:focus + .form__label,
+    &:not(:placeholder-shown) + .form__label {
+      transform: translateY(-20px) scale(.9);
+      transform-origin: left top;
+      color: var(--primary-color);
+    }
+    
+    &:focus ~ .form__line,
+    &:not(:placeholder-shown) ~ .form__line {
+      transform: scale(1);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: .3rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transform: translateY(12px);
+    transition: transform .3s, color .3s;
+  }
+
+  &__submit {
+    padding: 1.4rem 0;
+    border-radius: .8rem;
+    border: none;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .3s;
+  }
+}

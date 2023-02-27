@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form-Sass</title>
+  <!-- <link rel="icon" href="💙"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <form class="form">
+    <h2 class="form__title">Iniciar Sesion</h2>
+    <p class="form__count">¿No tienes cuenta? <a class="form__link" href="#">Registrate</a></p>
+    <div class="form__container">
+      <div class="form__group">
+        <input id="name" class="form__input" type="text" name="name" placeholder=" " autocomplete="off">
+        <label class="form__label" for="name">Nombre:</label>
+        <span class="form__line"></span>
+      </div>
+      <div class="form__group">
+        <input id="user" class="form__input" type="text" name="user" placeholder=" " autocomplete="off">
+        <label class="form__label" for="user">Usuario:</label>
+        <span class="form__line"></span>
+      </div>
+      <div class="form__group">
+        <input id="password" class="form__input" type="password" name="password" placeholder=" " autocomplete="off">
+        <label class="form__label" for="password">Contraseña:</label>
+        <span class="form__line"></span>
+      </div>
+      <input class="form__submit" type="submit">
+    </div>
+  </form>
+  <script>
+    const submit = document.querySelector('.form__submit')
+    const inputs = document.querySelectorAll('.form__input')
+    submit.addEventListener('click', e => {
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+      }
+      e.preventDefault()
+    })
+  </script>
+</body>
+</html>

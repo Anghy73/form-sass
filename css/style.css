@@ -1,0 +1,124 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --primary-color: #00beef;
+  --secondary-color: #370070;
+  --white-color: #fff;
+  --black-color: #000;
+}
+
+*::selection {
+  color: var(--primary-color);
+  background-color: var(--black-color);
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: var(--white-color);
+  background-color: var(--black-color);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.form {
+  width: 90%;
+  max-width: 450px;
+  padding: 7.4rem 5rem;
+  margin: auto;
+  border: 1px solid var(--secondary-color);
+  border-radius: 1.4rem;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--secondary-color);
+  backdrop-filter: blur(0.6rem);
+}
+.form__title {
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+}
+.form__count {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.form__link {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-left: 0.4rem;
+}
+.form__line {
+  font-weight: 500;
+  color: var(--white-color);
+}
+.form__container {
+  display: grid;
+  gap: 5rem;
+  margin-top: 5.4rem;
+}
+.form__group {
+  position: relative;
+}
+.form__input {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--white-color);
+  font-size: 1.8rem;
+  color: var(--white-color);
+  outline: none;
+}
+.form__input:focus + .form__label, .form__input:not(:placeholder-shown) + .form__label {
+  transform: translateY(-20px) scale(0.9);
+  transform-origin: left top;
+  color: var(--primary-color);
+}
+.form__input:focus ~ .form__line, .form__input:not(:placeholder-shown) ~ .form__line {
+  transform: scale(1);
+}
+.form__label {
+  position: absolute;
+  top: 0;
+  left: 0.3rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transform: translateY(12px);
+  transition: transform 0.3s, color 0.3s;
+}
+.form__submit {
+  padding: 1.4rem 0;
+  border-radius: 0.8rem;
+  border: none;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+.form__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-color);
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform 0.3s;
+}
+
+/*# sourceMappingURL=style.css.map */
